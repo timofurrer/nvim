@@ -13,5 +13,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Make sure to configure leader key before Lazy, so that all mappings are correct
+require("timo.leader")
+
 -- Load plugins
-require("lazy").setup("timo.plugins")
+require("lazy").setup({
+  spec = {
+    { import = "timo.colorschemes" },
+    { import = "timo.plugins" },
+  }
+})
+
+-- Load configuration
+require("timo.config")
