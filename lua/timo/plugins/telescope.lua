@@ -7,7 +7,7 @@ local file_ignore_patterns = {
 
 return {
   {
-    "nvim-telescope/telescope.nvim", 
+    "nvim-telescope/telescope.nvim",
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = {
       { "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true, file_ignore_patterns = file_ignore_patterns }) end, desc = "Find Files" },
