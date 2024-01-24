@@ -1,22 +1,22 @@
 return {
-  { 
+  {
     "williamboman/mason.nvim",
     opts = {},
   },
-  { 
+  {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
       { "williamboman/mason.nvim" },
     },
   },
-  { 
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "williamboman/mason-lspconfig.nvim" },
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { 
+        ensure_installed = {
           "lua_ls",
           "gopls",
           "terraformls",
@@ -51,7 +51,7 @@ return {
 
       -- This function gets run when an LSP connects to a particular buffer.
 			local on_attach = function(client, bufnr)
-        lsp_map = function(lhs, rhs, bufnr, desc)
+        local lsp_map = function(lhs, rhs, bufnr, desc)
           vim.keymap.set("n", lhs, rhs, { silent = true, buffer = bufnr, desc = desc })
         end
 
@@ -74,7 +74,7 @@ return {
 
 				lsp_map("<leader>fo", "<cmd>Format<cr>", bufnr, "Format")
 			end
-    
+
 			-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
