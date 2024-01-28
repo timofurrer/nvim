@@ -6,7 +6,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       { "<leader>Fo", ":Oil<cr>", desc = "Open Files with Oil" },
-      { "<leader>Ff", ":Oil --float<cr>", desc = "Open Files with Oil" },
+      { "<leader>FF", ":Oil --float<cr>", desc = "Open Files with Oil" },
     }
   }
 }
