@@ -19,6 +19,7 @@ return {
         ensure_installed = {
           "lua_ls",
           "gopls",
+          "hls",
           "terraformls",
           "yamlls",
         },
@@ -34,7 +35,13 @@ return {
 
       -- Diagnostic config
       local config = {
-        virtual_text = false,
+        virtual_text = {
+          severity = vim.diagnostic.severity.ERROR,
+          spacing = 8,
+          format = function(value)
+            return string.format('%s: [%s] %s', value.source, value.code, value.message)
+          end,
+        },
         update_in_insert = true,
         underline = true,
         severity_sort = true,
@@ -89,6 +96,7 @@ return {
       lspconfig["gopls"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["yamlls"].setup(defaultCfg)
+      lspconfig["hls"].setup(defaultCfg)
     end,
   },
 }
