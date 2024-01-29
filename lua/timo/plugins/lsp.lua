@@ -17,9 +17,14 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "bashls",
           "lua_ls",
+          "golangci_lint_ls",
           "gopls",
+          "helm_ls",
           "hls",
+          "jsonls",
+          "jsonnet_ls",
           "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "terraformls",
           "yamlls",
@@ -93,12 +98,17 @@ return {
       }
 
       local lspconfig = require("lspconfig")
+      lspconfig["bashls"].setup(defaultCfg)
       lspconfig["lua_ls"].setup(defaultCfg)
+      lspconfig["golangci_lint_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
+      lspconfig["helm_ls"].setup(defaultCfg)
+      lspconfig["hls"].setup(defaultCfg)
+      lspconfig["jsonls"].setup(defaultCfg)
+      lspconfig["jsonnet_ls"].setup(defaultCfg)
       lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["yamlls"].setup(defaultCfg)
-      lspconfig["hls"].setup(defaultCfg)
     end,
   },
 }
