@@ -20,6 +20,7 @@ return {
           "lua_ls",
           "gopls",
           "hls",
+          "solargraph", -- For Ruby and especially GitLab development, since they have configs for it.
           "terraformls",
           "yamlls",
         },
@@ -94,6 +95,7 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig["lua_ls"].setup(defaultCfg)
       lspconfig["gopls"].setup(defaultCfg)
+      lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
       lspconfig["yamlls"].setup(defaultCfg)
       lspconfig["hls"].setup(defaultCfg)
