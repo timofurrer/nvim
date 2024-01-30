@@ -16,11 +16,15 @@ return {
               if next(clients) == nil then
                 return msg
               end
+              local activeLsps = {}
               for _, client in ipairs(clients) do
                 local filetypes = client.config.filetypes
                 if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                  return client.name
+                  table.insert(activeLsps, client.name)
                 end
+              end
+              if #activeLsps > 0 then
+                return table.concat(activeLsps, ", ")
               end
               return msg
             end,
