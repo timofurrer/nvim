@@ -31,14 +31,6 @@ return {
         },
       })
 
-      require("lspconfig").yamlls.setup({
-        settings = {
-          yaml = {
-            ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/.gitlab-ci.yml",
-          },
-        },
-      })
-
       -- Diagnostic config
       local config = {
         virtual_text = {
@@ -96,8 +88,18 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       }
-
       local lspconfig = require("lspconfig")
+
+      local yamllsCfg = {}
+      for k, v in pairs(defaultCfg) do
+        yamllsCfg[k] = v
+      end
+      yamllsCfg["settings"] = {
+        yaml = {
+          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/.gitlab-ci.yml",
+        },
+      }
+
       lspconfig["bashls"].setup(defaultCfg)
       lspconfig["lua_ls"].setup(defaultCfg)
       lspconfig["golangci_lint_ls"].setup(defaultCfg)
@@ -108,7 +110,7 @@ return {
       lspconfig["jsonnet_ls"].setup(defaultCfg)
       lspconfig["solargraph"].setup(defaultCfg)
       lspconfig["terraformls"].setup(defaultCfg)
-      lspconfig["yamlls"].setup(defaultCfg)
+      lspconfig["yamlls"].setup(yamllsCfg)
     end,
   },
 }
