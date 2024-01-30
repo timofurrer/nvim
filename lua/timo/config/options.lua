@@ -29,7 +29,12 @@ opt.termguicolors = true -- True color support
 opt.undofile = true
 opt.undolevels = 10000
 
+-- Show hidden characters
+opt.list = true
+
 -- Scrolling
+opt.scrolloff = 8
+opt.sidescrolloff = 8
 -- opt.smoothscroll = true -- Only from 0.10
 
 -- Formatting
