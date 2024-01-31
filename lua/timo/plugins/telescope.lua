@@ -15,6 +15,8 @@ return {
       { "<leader>fg", function() require("telescope.builtin").git_files() end, desc = "Find Git Files" },
       { "<leader>fG", function() require("telescope.builtin").live_grep() end, desc = "Live Grep" },
       { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
+      { "<leader>ft", function() require("telescope.builtin").treesitter() end, desc = "Treesitter" },
     },
   },
+  -- Extensions
 }
