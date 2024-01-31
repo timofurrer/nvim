@@ -10,6 +10,8 @@ return {
       "nvim-neotest/neotest-go",
       "mrcjkb/neotest-haskell",
       "olimorris/neotest-rspec",
+      -- DAP
+      "mfussenegger/nvim-dap",
     },
     opts = function()
       return {
@@ -42,7 +44,16 @@ return {
     keys = {
       { '<leader>rt', function() require('neotest').run.run() end, desc = 'Run the nearest test' },
       { '<leader>rw', function() require('neotest').watch.toggle() end, desc = 'Toggle watching the nearest test' },
-      { '<leader>rd', function() require('neotest').run.run({ strategy = 'dap' }) end, desc = 'Debug the nearest test' },
+      { '<leader>rd', function()
+        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+        if buf_ft == "go" then
+          -- neotest-go doesn't yet support the DAP strategy, thus, we have to use another keybinding
+          -- See https://github.com/nvim-neotest/neotest-go/issues/12
+          require('dap-go').debug_test()
+        else
+          require('neotest').run.run({ strategy = 'dap' })
+        end
+      end, desc = 'Debug the nearest test' },
       { '<leader>rf', function() require('neotest').run.run(vim.fn.expand('%')) end, desc = 'Run the current file' },
       { '<leader>rl', function() require('neotest').run.run_last() end, desc = 'Repeat last test run' },
       { '<leader>rr', function() require('neotest').summary.toggle() end, desc = 'Open test summary' },
