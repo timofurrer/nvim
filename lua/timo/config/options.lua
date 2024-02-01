@@ -43,3 +43,6 @@ vim.g.autoformat = true
 -- Spelling
 opt.spell = true
 opt.spelllang = "en_us,de_ch"
+
+-- Concealling
+opt.conceallevel = 1 -- We use this for the obsidian pluign
