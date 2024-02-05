@@ -30,6 +30,7 @@ return {
       end
     end,
     keys = {
+      { "<leader>d", desc = "DAP" },
       -- Use common IDE mappings
       { "<F5>", function() require("dap").continue() end, desc = "Continue Execution" },
       { "<F7>", function() require("dap").step_into() end, desc = "Step Into" },

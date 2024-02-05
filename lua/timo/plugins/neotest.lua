@@ -42,6 +42,7 @@ return {
       require("neotest").setup(opts)
     end,
     keys = {
+      { '<leader>r', desc = 'Neotest' },
       { '<leader>rt', function() require('neotest').run.run() end, desc = 'Run the nearest test' },
       { '<leader>rw', function() require('neotest').watch.toggle() end, desc = 'Toggle watching the nearest test' },
       { '<leader>rd', function()

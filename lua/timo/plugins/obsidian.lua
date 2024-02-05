@@ -30,11 +30,14 @@ return {
     }
   },
   keys = {
+    { "<leader>o", desc = "Obsidian" },
     { "<leader>oo", "<cmd>:ObsidianOpen<cr>", desc = "Open Obsidian" },
     { "<leader>os", "<cmd>:ObsidianSearch<cr>", desc = "Search Notes in Obsidian" },
     { "<leader>oq", "<cmd>:ObsidianQuickSwitch<cr>", desc = "Quickly Switch Notes in Obsidian" },
     { "<leader>on", "<cmd>:ObsidianNew<cr>", desc = "New Note in Obsidian" },
     { "<leader>od", "<cmd>:ObsidianToday<cr>", desc = "Open Daily Note in Obsidian" },
     { "<leader>ot", "<cmd>:ObsidianTags<cr>", desc = "Search Tags in Obsidian" },
+    -- GitLab specific
+    { "<leader>wbg", "<cmd>:ObsidianSearch GitLab Workbook<cr>", desc = "Open GitLab Workbook in Obsidian"},
   },
 }

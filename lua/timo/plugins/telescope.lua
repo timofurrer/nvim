@@ -19,4 +19,16 @@ return {
     },
   },
   -- Extensions
+  {
+    "sopa0/telescope-makefile",
+    dependencies = {
+      "akinsho/nvim-toggleterm.lua",
+    },
+    config = function()
+      require("telescope").load_extension("make")
+    end,
+    keys = {
+      { "<leader>M", "<cmd>Telescope make<cr>", desc = "Call a Makefile Target", silent = true },
+    },
+  },
 }

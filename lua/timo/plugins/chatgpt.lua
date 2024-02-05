@@ -23,6 +23,7 @@ return {
       })
     end,
     keys = {
+      { "<leader>c", desc = "ChatGPT" },
       { "<leader>cc", "<cmd>ChatGPT<cr>", desc = "ChatGPT" },
       { "<leader>ca", "<cmd>ChatGPTAcAs", desc = "Act as ..." },
       { "<leader>ce", "<cmd>ChatGPTEditWithInstruction", desc = "Edit with instruction", mode = { "n", "v" }},
